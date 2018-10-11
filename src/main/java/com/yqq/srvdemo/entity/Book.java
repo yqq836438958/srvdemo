@@ -14,8 +14,8 @@ public class Book extends BaseModel {
     @Column(name = "name", type = MySqlTypeConstant.VARCHAR, length = 111)
     private String name;
 
-    @Column(name = "desc", type = MySqlTypeConstant.TEXT)
-    private String desc;
+    @Column(name = "bookdesc", type = MySqlTypeConstant.TEXT)
+    private String bookdesc;
 
     public Integer getId() {
         return id;
@@ -33,11 +33,11 @@ public class Book extends BaseModel {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getBookdesc() {
+        return bookdesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setBookdesc(String bookdesc) {
+        this.bookdesc = bookdesc;
     }
 }
