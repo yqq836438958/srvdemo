@@ -9,19 +9,15 @@ import org.apache.ibatis.type.EnumOrdinalTypeHandler;
 
 import java.io.Serializable;
 
-@Table(name = "book")
-public class Book extends BaseModel implements Serializable {
+//@Table(name = "book")
+public class Book implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Column(name = "id", type = MySqlTypeConstant.INT, length = 11, isKey = true, isAutoIncrement = true)
     private Integer id;
 
-    @Column(name = "bookname", type = MySqlTypeConstant.VARCHAR, length = 111)
     private String bookname;
 
-    @Column(name = "bookdesc", type = MySqlTypeConstant.VARCHAR)
     private String bookdesc;
 
-    @Column(name = "status", type = "enum")
     private STATUS status;
 
     public Integer getId() {
@@ -56,7 +52,11 @@ public class Book extends BaseModel implements Serializable {
         this.status = status;
     }
 
-    public enum STATUS {
+    @Override
+    public String toString(){
+        return "id:"+id+",bookname:"+bookname+",bookdesc:"+bookdesc+",status:"+ status/*.toString()*/;
+    }
+    public static enum STATUS {
         HISTORY,
         CHILD,
         SCIENCE

@@ -8,5 +8,13 @@
 		<typeAlias alias="LinkedHashMap" type="java.util.LinkedHashMap" />
 		<typeAlias alias="ArrayList" type="java.util.ArrayList" />
 		<typeAlias alias="LinkedList" type="java.util.LinkedList" />
+		<typeAlias alias="Enum" type="java.lang.Enum" />
 	</typeAliases>
+	<!--<typeHandlers>-->
+		<!--<typeHandler handler="org.apache.ibatis.type.EnumTypeHandler" javaType="com.yqq.srvdemo.entity.Book.STATUS"/>-->
+	<!--</typeHandlers>-->
+	<!--<typeHandlers>-->
+		<!--<typeHandler handler="org.apache.ibatis.type.EnumTypeHandler"-->
+					 <!--javaType="com.yqq.srvdemo.entity.Book.STATUS"/>-->
+	<!--</typeHandlers>-->
 </configuration>
