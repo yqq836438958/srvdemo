@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface IBookMapper {
-
-    @Insert("INSERT INTO book(id,name,bookdesc) VALUES(#{id}, #{name}, #{bookdesc})")
+    @Insert("INSERT INTO book(id,bookname,bookdesc) VALUES(#{id}, #{bookname}, #{bookdesc},#{status,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler})")
     void addBook(Book book);
 }

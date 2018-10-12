@@ -4,18 +4,25 @@ import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 import com.gitee.sunchenbin.mybatis.actable.command.BaseModel;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
+import org.apache.ibatis.annotations.Arg;
+import org.apache.ibatis.type.EnumOrdinalTypeHandler;
+
+import java.io.Serializable;
 
 @Table(name = "book")
-public class Book extends BaseModel {
-
+public class Book extends BaseModel implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Column(name = "id", type = MySqlTypeConstant.INT, length = 11, isKey = true, isAutoIncrement = true)
     private Integer id;
 
-    @Column(name = "name", type = MySqlTypeConstant.VARCHAR, length = 111)
-    private String name;
+    @Column(name = "bookname", type = MySqlTypeConstant.VARCHAR, length = 111)
+    private String bookname;
 
-    @Column(name = "bookdesc", type = MySqlTypeConstant.TEXT)
+    @Column(name = "bookdesc", type = MySqlTypeConstant.VARCHAR)
     private String bookdesc;
+
+    @Column(name = "status", type = "enum")
+    private STATUS status;
 
     public Integer getId() {
         return id;
@@ -25,12 +32,12 @@ public class Book extends BaseModel {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getBookname() {
+        return bookname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBookname(String bookname) {
+        this.bookname = bookname;
     }
 
     public String getBookdesc() {
@@ -39,5 +46,19 @@ public class Book extends BaseModel {
 
     public void setBookdesc(String bookdesc) {
         this.bookdesc = bookdesc;
+    }
+
+    public STATUS getStatus() {
+        return status;
+    }
+
+    public void setStatus(STATUS status) {
+        this.status = status;
+    }
+
+    public enum STATUS {
+        HISTORY,
+        CHILD,
+        SCIENCE
     }
 }

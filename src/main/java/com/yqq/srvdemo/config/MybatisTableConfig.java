@@ -14,8 +14,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
  * @author 徐森威
  * @date 2017/11/14
  */
-@Configuration
-@ComponentScan(basePackages = {"com.gitee.sunchenbin.mybatis.actable.manager.*"})
+//@Configuration
+//@ComponentScan(basePackages = {"com.gitee.sunchenbin.mybatis.actable.manager.*"})
 public class MybatisTableConfig {
 
     @Value("${spring.datasource.driver-class-name}")

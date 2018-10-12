@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yqq.srvdemo.mapper.IXmlBookMapper" >
+    <resultMap id="BaseResultMap" type="com.yqq.srvdemo.entity.Book" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="bookname" property="bookname" jdbcType="VARCHAR" />
+        <result column="bookdesc" property="bookdesc" jdbcType="VARCHAR" />
+        <result column="status" jdbcType="TINYINT" property="status" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler" />
+        <!--<result column="status" property="status" jdbcType="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>-->
+        <!--<result column="user_sex" property="userSex" javaType="com.vtsm.enums.UserSexEnum"/>-->
+        <!--<result column="nick_name" property="nickName" jdbcType="VARCHAR" />-->
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, bookname, bookdesc
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM book
+    </select>
+
+    <!--<select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >-->
+        <!--SELECT-->
+        <!--<include refid="Base_Column_List" />-->
+        <!--FROM users-->
+        <!--WHERE id = #{id}-->
+    <!--</select>-->
+
+    <insert id="addBook" parameterType="com.yqq.srvdemo.entity.Book" >
+       INSERT INTO
+       		book
+       		(id,bookname,bookdesc,status)
+       	VALUES
+       		(#{id}, #{bookname}, #{bookdesc},#{status,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler})
+    </insert>
+
+    <!--<update id="update" parameterType="com.vtsm.entity.UserEntity" >-->
+        <!--UPDATE-->
+        <!--users-->
+        <!--SET-->
+        <!--<if test="userName != null">userName = #{userName},</if>-->
+        <!--<if test="passWord != null">passWord = #{passWord},</if>-->
+        <!--nick_name = #{nickName}-->
+        <!--WHERE-->
+        <!--id = #{id}-->
+    <!--</update>-->
+
+    <!--<delete id="delete" parameterType="java.lang.Long" >-->
+       <!--DELETE FROM-->
+       		 <!--users-->
+       <!--WHERE-->
+       		 <!--id =#{id}-->
+    <!--</delete>-->
+
+</mapper>
